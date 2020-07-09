@@ -1,0 +1,21 @@
+name: 'Start local SAFE Network'
+description: 'Start a local SAFE Network section'
+author: 'MaidSafe Team'
+
+inputs:
+  vault-version:
+    description: 'The version of the safe vault to install'
+    required: true
+    default: 'latest'
+
+  cli-version:
+    description: 'The version of the safe cli to install'
+    required: true
+    default: 'latest'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.vault-version }}
+    - ${{ inputs.cli-version }}
